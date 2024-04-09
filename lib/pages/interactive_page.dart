@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(seconds: 8), () {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
-        "name": "en-us-x-sfg#male_1-local",
+        "name": "en-us-x-sfg#male_5-local",
 
       });
       _flutterTts.speak(CHAR2_VOICE1); // Speak the male voice message
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(seconds: 24), () {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
-        "name": "en-us-x-sfg#male_1-local",
+        "name": "en-us-x-sfg#male_5-local",
 
       });
       _flutterTts.speak(CHAR2_VOICE2); // Speak the male voice message
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(seconds: 38), () {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
-        "name": "en-us-x-sfg#male_1-local",
+        "name": "en-us-x-sfg#male_5-local",
 
       });
       _flutterTts.speak(CHAR2_VOICE3); // Speak the male voice message
