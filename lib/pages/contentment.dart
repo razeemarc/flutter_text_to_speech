@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'interactive_page.dart';
+import 'package:url_launcher/url_launcher.dart';
+final Uri _url = Uri.parse('https://my.atlist.com/map/4d042eb5-b5cb-43b8-90d8-87c4e1ed7140/?share=true');
 class ContentPage extends StatelessWidget {
   const ContentPage({super.key});
 
@@ -111,11 +113,35 @@ class ContentPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Positioned(
+                  left: 90,
+                  right: 90,
+                  bottom: 0,
+                  child: Container(
+                    padding: EdgeInsets.all(16.0),
+                    // Adjust the background color
+                    child: SizedBox(
+
+                      child: ElevatedButton(
+                        onPressed: _launchUrl ,
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white, backgroundColor: Color(0xFFE1A308), // Set the text color
+                        ),
+                        child: Text('View Direction'),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+}
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }
