@@ -156,7 +156,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
   bool showSecondCharacter = false;
 
   String firstCharacterText =CHAR1_VOICE1;
-      String secondCharacterText =CHAR2_VOICE1;
+  String secondCharacterText =CHAR2_VOICE1;
 
   @override
   void initState() {
@@ -451,6 +451,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),

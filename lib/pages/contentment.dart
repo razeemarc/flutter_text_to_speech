@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'interactive_page.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'chatbot.dart';
 final Uri _url = Uri.parse('https://my.atlist.com/map/4d042eb5-b5cb-43b8-90d8-87c4e1ed7140/?share=true');
 class ContentPage extends StatelessWidget {
   const ContentPage({super.key});
-
+  void _navigateToChatScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ChatScreen()),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -114,22 +120,40 @@ class ContentPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  left: 90,
-                  right: 90,
-                  bottom: 0,
+                  left: 50,
+                  right: 100,
+                  bottom: 5,
                   child: Container(
                     padding: EdgeInsets.all(16.0),
                     // Adjust the background color
                     child: SizedBox(
-
                       child: ElevatedButton(
-                        onPressed: _launchUrl ,
+                        onPressed: _launchUrl,
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Color(0xFFE1A308), // Set the text color
+                          foregroundColor: Colors.white,
+                          backgroundColor: Color.fromRGBO(137, 164, 184, 1), // Set the background color
                         ),
-                        child: Text('View Direction'),
+                        child: Text(
+                          'View Direction',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold, // Make the text bold
+                            fontSize: 18, // Set the font size
+                          ),
+                        ),
                       ),
                     ),
+                  ),
+                ),
+
+                Positioned(
+                  bottom: 20.0, // Adjust this value to change the button's vertical position
+                  right: 20.0, // Adjust this value to change the button's horizontal position
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      _navigateToChatScreen(context);
+                    },
+                    child: const Icon(Icons.chat, color: Colors.white), // Change the icon color here
+                    backgroundColor: const Color(0xFFE1A308), // Change the background color here
                   ),
                 ),
               ],
