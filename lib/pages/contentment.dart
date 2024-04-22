@@ -124,26 +124,24 @@ class ContentPage extends StatelessWidget {
                   right: 100,
                   bottom: 5,
                   child: Container(
-                    padding: EdgeInsets.all(16.0),
-                    // Adjust the background color
-                    child: SizedBox(
-                      child: ElevatedButton(
-                        onPressed: _launchUrl,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Color.fromRGBO(137, 164, 184, 1), // Set the background color
-                        ),
-                        child: Text(
-                          'View Direction',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold, // Make the text bold
-                            fontSize: 18, // Set the font size
-                          ),
+                    padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 24.0), // Adjust vertical padding to increase height
+                    child: ElevatedButton(
+                      onPressed: _launchUrl,
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Color.fromRGBO(137, 164, 184, 1),
+                      ),
+                      child: Text(
+                        'View Direction',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
                       ),
                     ),
                   ),
                 ),
+
 
                 Positioned(
                   bottom: 20.0, // Adjust this value to change the button's vertical position
