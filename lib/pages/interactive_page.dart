@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_text_to_speech_tutorial/consts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'contentment.dart';
-import 'login.dart';
+import 'map_page.dart';
 
 void main() {
   runApp(ImageSliderApp());
@@ -392,7 +392,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => MapPage()),
                       );
                     },
                   ),

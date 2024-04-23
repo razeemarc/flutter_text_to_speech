@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'interactive_page.dart';
+import 'package:flutter_text_to_speech_tutorial/pages/map_page.dart';
+
 
 
 class LoginScreen extends StatelessWidget {
@@ -98,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => HomePage()),
+                                    MaterialPageRoute(builder: (context) => MapPage()),
                                   );
                                 },
                                 style: ButtonStyle(
