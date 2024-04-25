@@ -1,13 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_text_to_speech_tutorial/consts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'contentment.dart';
 import 'map_page.dart';
 
-void main() {
-  runApp(ImageSliderApp());
-}
+
 
 class ImageSliderApp extends StatelessWidget {
   @override
@@ -41,7 +38,6 @@ class _HomePageState extends State<HomePage> {
     _flutterTts.speak(CHAR1_VOICE1); // Start speaking when the page is opened
 
     _speakMaleVoiceAfterDelay();
-
   }
 
   void initTTS() {
@@ -71,7 +67,6 @@ class _HomePageState extends State<HomePage> {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
         "name": "en-us-x-sfg#male_5-local",
-
       });
       _flutterTts.speak(CHAR2_VOICE1); // Speak the male voice message
     });
@@ -79,7 +74,6 @@ class _HomePageState extends State<HomePage> {
       _flutterTts.setLanguage("en-US"); // Set language to English
       _flutterTts.setVoice({
         "name": "en-us-x-sfg#male_1-local",
-
       });
       _flutterTts.speak(CHAR1_VOICE2); // Speak the male voice message
     });
@@ -87,7 +81,6 @@ class _HomePageState extends State<HomePage> {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
         "name": "en-us-x-sfg#male_5-local",
-
       });
       _flutterTts.speak(CHAR2_VOICE2); // Speak the male voice message
     });
@@ -95,7 +88,6 @@ class _HomePageState extends State<HomePage> {
       _flutterTts.setLanguage("en-US"); // Set language to English
       _flutterTts.setVoice({
         "name": "en-us-x-sfg#male_1-local",
-
       });
       _flutterTts.speak(CHAR1_VOICE3); // Speak the male voice message
     });
@@ -103,14 +95,16 @@ class _HomePageState extends State<HomePage> {
       _flutterTts.setLanguage("en-IN"); // Set language to English
       _flutterTts.setVoice({
         "name": "en-us-x-sfg#male_5-local",
-
       });
       _flutterTts.speak(CHAR2_VOICE3); // Speak the male voice message
     });
-
-
   }
 
+  @override
+  void dispose() {
+    _flutterTts.stop(); // Stop the text-to-speech engine
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,8 +149,8 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
   bool showFirstCharacter = true;
   bool showSecondCharacter = false;
 
-  String firstCharacterText =CHAR1_VOICE1;
-  String secondCharacterText =CHAR2_VOICE1;
+  String firstCharacterText = CHAR1_VOICE1;
+  String secondCharacterText = CHAR2_VOICE1;
 
   @override
   void initState() {
@@ -170,7 +164,6 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
         showSecondCharacter = true;
         if (showSecondCharacter) {
           firstCharacterText = CHAR1_VOICE2;
-
         }
       });
     });
@@ -179,7 +172,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
         showFirstCharacter = true;
         showSecondCharacter = false;
         if (showFirstCharacter) {
-          secondCharacterText =CHAR2_VOICE2 ;
+          secondCharacterText = CHAR2_VOICE2;
         }
       });
     });
@@ -206,20 +199,10 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
         showFirstCharacter = false;
         showSecondCharacter = true;
         if (showSecondCharacter) {
-          firstCharacterText =
-              CHAR1_VOICE4;
+          firstCharacterText = CHAR1_VOICE4;
         }
       });
     });
-    // Future.delayed(Duration(seconds: 48), () {
-    //   setState(() {
-    //     showFirstCharacter = true;
-    //     showSecondCharacter = false;
-    //     if (showFirstCharacter) {
-    //       secondCharacterText = CHAR2_VOICE4;
-    //     }
-    //   });
-    // });
 
     // Second part of initState()
     _pageController.addListener(() {
@@ -342,7 +325,10 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ContentPage()),
-                );
+                ).then((_) {
+                  // When returning from the content page, stop the TTS engine
+                  _stopTTS();
+                });
               },
               child: Text(
                 'To Know More',
@@ -451,7 +437,6 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -476,5 +461,10 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
       );
     }
     return indicators;
+  }
+
+  void _stopTTS() {
+    // Stop the text-to-speech engine
+    FlutterTts().stop();
   }
 }

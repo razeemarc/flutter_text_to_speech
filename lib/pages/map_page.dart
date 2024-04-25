@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'chatbot.dart';
 import 'interactive_page.dart';
-
+import 'interactivepage_mk.dart';
+import 'feedback_chitharal.dart';
+import 'feedback_mk.dart';
+import 'feedback_vk.dart';
 
 class MapPage extends StatelessWidget {
   void _navigateToChatScreen(BuildContext context) {
@@ -53,18 +56,7 @@ class MapPage extends StatelessWidget {
                   stops: [0, 1],
                 ),
               ),
-              child: Center(
-                child: Text(
-                  'Top Rated Places',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+
             ),
           ),
           Positioned(
@@ -167,9 +159,7 @@ class MapPage extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => MarunthuKottaiPage(),
-                            ),
+                            MaterialPageRoute(builder: (context) => MarunthukottaiPage()),
                           );
                         },
                         child: Opacity(
@@ -244,10 +234,10 @@ class MapPage extends StatelessWidget {
             child: Opacity(
               opacity: 1,
               child: Container(
-                width: 88,
+                width: 188,
                 height: 24,
                 child: Text(
-                  'Locations',
+                  'View Feedback',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontFamily: 'Poppins',
@@ -263,14 +253,22 @@ class MapPage extends StatelessWidget {
           Positioned(
             top: 760,
             left: 30,
-            child: ClipOval(
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/circleimage1.jpg'),
-                    fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedbackChitharal()),
+                );
+              },
+              child: ClipOval(
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/circleimage1.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -279,14 +277,22 @@ class MapPage extends StatelessWidget {
           Positioned(
             top: 760,
             left: 130,
-            child: ClipOval(
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/circleimage2.jpg'),
-                    fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedbackMarunthuKottai()),
+                );
+              },
+              child: ClipOval(
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/circleimage2.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -295,19 +301,28 @@ class MapPage extends StatelessWidget {
           Positioned(
             top: 760,
             left: 230,
-            child: ClipOval(
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/circleimage3.jpg'),
-                    fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedbackVattaKottai()),
+                );
+              },
+              child: ClipOval(
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/circleimage3.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
             ),
           ),
+
           Positioned(
             bottom: 20.0, // Adjust this value to change the button's vertical position
             right: 20.0, // Adjust this value to change the button's horizontal position
@@ -327,19 +342,7 @@ class MapPage extends StatelessWidget {
 
 
 
-class MarunthuKottaiPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Marunthu Kottai'),
-      ),
-      body: Center(
-        child: Text('Welcome to Marunthu Kottai Page'),
-      ),
-    );
-  }
-}
+
 
 class VattakottaiFortPage extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'submit.dart';
-import 'contentment.dart';
+
 
 class RatingScreen extends StatefulWidget {
   const RatingScreen({super.key});
@@ -65,10 +65,7 @@ class _RatingScreenState extends State<RatingScreen> {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ContentPage()),
-                        );
+                        Navigator.pop(context); // Navigate back to the previous page
                       },
 
                     ),

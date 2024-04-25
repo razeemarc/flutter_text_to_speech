@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'feedback.dart';
+
 import 'interactive_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'chatbot.dart';
@@ -18,12 +18,7 @@ class ContentPage extends StatelessWidget {
       debugShowCheckedModeBanner: false, // This line removes the debug banner
       home: SafeArea(
         child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => RatingScreen()),
-            );
-          },
+
           child: Scaffold(
             body: Stack(
               children: [
